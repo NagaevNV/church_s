@@ -23,17 +23,17 @@
 	<div class="container">
 	<div id="page" class="hfeed site">
 		<header id="masthead" class="site-header" role="banner">
-			<div class="site-branding">
+			<div class="site-branding col-xs-12">
 				<?php if ( get_header_image() ) : ?>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" class="visible-lg visible-md">
 						<img src="<?php header_image(); ?>" class="img-responsive" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
 					</a>
 				<?php endif; ?>
 				<?php if (is_front_page() && is_home()) : ?>
-					<h1 class="site-title visible-sm">
+					<h1 class="site-title hidden-lg hidden-md text-center">
 						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></h1>
 				<?php else : ?>
-					<p class="site-title visible-sm">
+					<p class="site-title hidden-lg hidden-md hidden-xs">
 						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a></p>
 				<?php endif; ?>
 				<p class="site-description visible-sm"><?php bloginfo('description'); ?></p>
@@ -50,9 +50,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand visible-xs" href="<?php echo home_url(); ?>">
-							<?php bloginfo('name'); ?>
-						</a>
+						<div class="navbar-brand visible-xs">Menu</div>
 					</div>
 
 					<?php
