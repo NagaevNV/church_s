@@ -114,11 +114,9 @@ add_action( 'widgets_init', 'church_widgets_init' );
  * Enqueue scripts and styles.
  */
 function church_scripts() {
-	wp_enqueue_style( 'church-bootstrap-css', get_template_directory_uri() . '/css/bootstrap.min.css' );
-
-	wp_enqueue_style( 'church-bootstrap-theme-css', get_template_directory_uri() . '/css/bootstrap-theme.min.css' );
-
 	wp_enqueue_style( 'church-style', get_stylesheet_uri() );
+
+	wp_enqueue_style( 'church-theme-css', get_template_directory_uri() . '/css/theme.min.css' );
 
 	wp_enqueue_script("jquery");
 
