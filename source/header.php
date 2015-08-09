@@ -1,11 +1,8 @@
 <?php
 /**
  * The header for our theme.
- *
  * This is the template that displays all of the <head> section and everything up until <div id="content">
- *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
  * @package church_s
  */
 ?>
@@ -22,8 +19,7 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div class="container">
-    <div id="page" class="hfeed site">
+    <div id="page" class="hfeed site container">
 
         <header id="masthead" class="site-header" role="banner">
             <div class="site-branding text-center">
@@ -74,4 +70,4 @@
         </header>
         <!-- #masthead -->
 
-        <div id="content" class="site-content container">
+        <div id="content" class="site-content row">
