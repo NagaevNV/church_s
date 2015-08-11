@@ -76,6 +76,8 @@ function church_setup() {
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
+
+	add_editor_style( 'css/editor-style.css' );
 }
 endif; // church_setup
 add_action( 'after_setup_theme', 'church_setup' );
@@ -159,3 +161,4 @@ require get_template_directory() . '/inc/jetpack.php';
 
 // Register Custom Navigation Walker
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+
