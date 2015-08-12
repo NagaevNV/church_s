@@ -9,18 +9,20 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class('row'); ?>>
+	<header class="entry-header col-lg-12">
 		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php church_posted_on(); ?>
-		</div><!-- .entry-meta -->
+			<div class="entry-meta">
+				<?php church_posted_on(); ?>
+			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 
-	<div class="entry-content">
+	<a href="<?php the_permalink(); ?>" class="image image-full hidden-xs col-lg-12 center-block"><?php if ( has_post_thumbnail() ) { the_post_thumbnail('','class=img-responsive');}  ?></a>
+
+	<div class="entry-content col-lg-12">
 		<?php
 			the_content( sprintf(
 				/* translators: %s: Name of current post. */
@@ -37,7 +39,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer col-lg-12">
 		<?php church_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

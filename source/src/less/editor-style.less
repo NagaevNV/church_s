@@ -27,42 +27,12 @@ Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 // Reset and dependencies
 @import "bootstrap/normalize.less";
 @import "bootstrap/print.less";
-@import "bootstrap/glyphicons.less";
 // Core CSS
 @import "bootstrap/scaffolding.less";
 @import "bootstrap/type.less";
 @import "bootstrap/code.less";
 @import "bootstrap/grid.less";
 @import "bootstrap/tables.less";
-@import "bootstrap/forms.less";
-@import "bootstrap/buttons.less";
-// Components
-@import "bootstrap/component-animations.less";
-@import "bootstrap/dropdowns.less";
-@import "bootstrap/button-groups.less";
-@import "bootstrap/input-groups.less";
-@import "bootstrap/navs.less";
-@import "bootstrap/navbar.less";
-@import "bootstrap/breadcrumbs.less";
-@import "bootstrap/pagination.less";
-@import "bootstrap/pager.less";
-@import "bootstrap/labels.less";
-@import "bootstrap/badges.less";
-@import "bootstrap/jumbotron.less";
-@import "bootstrap/thumbnails.less";
-@import "bootstrap/alerts.less";
-@import "bootstrap/progress-bars.less";
-@import "bootstrap/media.less";
-@import "bootstrap/list-group.less";
-@import "bootstrap/panels.less";
-@import "bootstrap/responsive-embed.less";
-@import "bootstrap/wells.less";
-@import "bootstrap/close.less";
-// Components w/ JavaScript
-@import "bootstrap/modals.less";
-@import "bootstrap/tooltip.less";
-@import "bootstrap/popovers.less";
-@import "bootstrap/carousel.less";
 // Utility classes
 @import "bootstrap/utilities.less";
 @import "bootstrap/responsive-utilities.less";
@@ -101,220 +71,22 @@ Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 # Typography
 --------------------------------------------------------------*/
 
+// Headings
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
     font-family: "PT Sans Narrow", "PT Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;;
     font-weight: bold;
 }
 
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-
-.site {
-    margin-top: 50px;
-    background-color: #FFF;
-    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+// Blockquotes
+blockquote {
+    border-top: 2px solid @blockquote-border-color;
+    border-left: 0;
+    border-bottom: 2px solid @blockquote-border-color;
 }
 
-.site-header {
-    padding-top: 15px;
-}
-
-.site-branding {
-    padding-bottom: 15px;
-}
-
-h1.site-title > a {
-    font-weight: bold;
-    color: #B33D19;
-
-    &:hover,
-    &:focus {
-        color: #B33D19;
-    }
-}
-
-p.site-title {
-    font-size: floor((@font-size-base * 2.6));
-    font-weight: bold;
-    color: #B33D19;
-}
-
-p.site-description {
-    font-weight: bold;
-    color: #27528B;
-}
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Navigation
---------------------------------------------------------------*/
-
-//
-// Navbars
-// --------------------------------------------------
-
-.navbar {
-    border: 2px solid transparent;
-    font-weight: bold;
-}
-
-.navbar-default {
-    background-color: @navbar-default-bg;
-    border-color: @navbar-default-border;
-
-    .navbar-brand {
-        color: @navbar-default-brand-color;
-        &:hover,
-        &:focus {
-            color: @navbar-default-brand-hover-color;
-            background-color: @navbar-default-brand-hover-bg;
-        }
-    }
-
-    .navbar-nav {
-        > li > a {
-            color: @navbar-default-link-color;
-
-            &:hover,
-            &:focus {
-                color: @navbar-default-link-hover-color;
-                background-color: @navbar-default-link-hover-bg;
-            }
-        }
-        > li > .dropdown-menu {
-            margin-top: 2px;
-            box-shadow: none;
-            border-bottom: 2px solid transparent;
-            border-bottom-color: @navbar-default-border;
-
-            li > a {
-                font-weight: bold;
-                background-color: @navbar-default-link-hover-bg;
-                color: @navbar-default-link-color;
-
-                &:hover,
-                &:focus {
-                    color: @navbar-default-link-hover-color;
-                    background-color: @navbar-default-link-hover-bg;
-                }
-            }
-        }
-        > .active > a {
-            &,
-            &:hover,
-            &:focus {
-                color: @navbar-default-link-active-color;
-                background-color: @navbar-default-link-active-bg;
-            }
-        }
-        > .disabled > a {
-            &,
-            &:hover,
-            &:focus {
-                color: @navbar-default-link-disabled-color;
-                background-color: @navbar-default-link-disabled-bg;
-            }
-        }
-    }
-}
-/*--------------------------------------------------------------
-## Links
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Content
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Posts and pages
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Asides
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-# Media
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Captions
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Galleries
---------------------------------------------------------------*/
-
-@media (max-width: @screen-xs-max) {
-    body > div.container {
-        //padding-left: 0;
-        //padding-right: 0;
-    }
-
-    .site {
-        margin-top: 0;
-    }
-
-    .site-header {
-        padding-top: 0;
-    }
-
-    .site-branding {
-        padding-bottom: 0;
-    }
-
-    .navbar {
-        margin-left: -15px;
-        margin-right: -15px;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: 2px solid transparent;
-
-    }
-
-    .navbar-default {
-        background-color: #fff;
-        border-color: @navbar-default-border;
-
-        .navbar-brand {
-            color: @navbar-default-brand-color;
-            &:hover,
-            &:focus {
-                color: @navbar-default-brand-hover-color;
-                background-color: @navbar-default-brand-hover-bg;
-            }
-        }
-    }
+.blockquote-reverse,
+blockquote.pull-right {
+    border-top: 2px solid @blockquote-border-color;
+    border-right: 0;
+    border-bottom: 2px solid @blockquote-border-color;
 }
