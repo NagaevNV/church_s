@@ -41,6 +41,7 @@
             </div>
             <!-- .site-branding -->
             <nav class="navbar navbar-default" role="navigation">
+                <div class="decor-line hidden-xs"></div>
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -65,6 +66,7 @@
                         'walker'            => new wp_bootstrap_navwalker()));
                     ?>
                 </div>
+                <div class="decor-line hidden-xs"></div>
             </nav>
             <!-- .navbar  -->
         </header>

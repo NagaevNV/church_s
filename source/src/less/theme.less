@@ -160,6 +160,30 @@ p.site-description {
     color: #27528B;
 }
 
+.decor-line {
+    background: #E9CE9E none repeat scroll 0% 0%;
+    height: 2px;
+    position: relative;
+}
+
+.decor-line::before {
+    background: transparent url("../img/decor_line.png") no-repeat scroll 0% 0%;
+    left: 0px;
+}
+
+.decor-line::after {
+    background: transparent url("../img/decor_line.png") no-repeat scroll 100% 0px;
+    right: 0px;
+}
+
+.decor-line::after, .decor-line::before {
+    content: "";
+    width: 14px;
+    height: 10px;
+    margin-top: -4px;
+    display: block;
+    position: absolute;
+}
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
@@ -171,9 +195,9 @@ p.site-description {
 //
 // Navbars
 // --------------------------------------------------
-
 .navbar {
-    border: 2px solid transparent;
+    border: 0;
+    //border: 2px solid transparent;
     font-weight: bold;
 }
 
