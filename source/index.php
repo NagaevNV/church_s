@@ -11,15 +11,7 @@
  *
  * @package church_s
  */
-
 get_header(); ?>
-
-<?php
-if ( is_front_page() && church_has_featured_posts() ) {
-	// Include the featured content template.
-	get_template_part( 'featured-content' );
-}
-?>
 
 	<div id="primary" class="content-area col-xs-12 col-lg-8">
 		<main id="main" class="site-main" role="main">
