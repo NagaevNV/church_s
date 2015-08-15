@@ -77,6 +77,12 @@ function church_setup() {
 		'default-image' => '',
 	) ) );
 
+	// Add support for featured content.
+	add_theme_support( 'featured-content', array(
+		'featured_content_filter' => 'church_get_featured_posts',
+		'max_posts' => 6,
+	) );
+
 	add_editor_style( 'css/editor-style.css' );
 }
 endif; // church_setup
@@ -93,6 +99,36 @@ function church_content_width() {
 	$GLOBALS['content_width'] = apply_filters( 'church_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'church_content_width', 0 );
+
+/**
+ * Getter function for Featured Content Plugin.
+ *
+ * @since Twenty Fourteen 1.0
+ *
+ * @return array An array of WP_Post objects.
+ */
+function church_get_featured_posts() {
+	/**
+	 * Filter the featured posts to return in Twenty Fourteen.
+	 *
+	 * @since Twenty Fourteen 1.0
+	 *
+	 * @param array|bool $posts Array of featured posts, otherwise false.
+	 */
+	return apply_filters( 'church_get_featured_posts', array() );
+}
+
+/**
+ * A helper conditional function that returns a boolean value.
+ *
+ * @since Twenty Fourteen 1.0
+ *
+ * @return bool Whether there are featured posts.
+ */
+function church_has_featured_posts() {
+	return ! is_paged() && (bool) church_get_featured_posts();
+}
+
 
 /**
  * Register widget area.
@@ -131,6 +167,16 @@ function church_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if ( is_front_page() && 'slider' == get_theme_mod( 'featured_content_layout' ) ) {
+		wp_enqueue_script( 'church-slider', get_template_directory_uri() . '/js/slider.js', array( 'jquery' ), '20131205', true );
+		wp_localize_script( 'church-slider', 'featuredSliderDefaults', array(
+			'prevText' => __( 'Previous', 'church' ),
+			'nextText' => __( 'Next', 'church' )
+		) );
+	}
+
+	wp_enqueue_script( 'church-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20150315', true );
 }
 add_action( 'wp_enqueue_scripts', 'church_scripts' );
 
@@ -162,3 +208,12 @@ require get_template_directory() . '/inc/jetpack.php';
 // Register Custom Navigation Walker
 require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
 
+/*
+ * Add Featured Content functionality.
+ *
+ * To overwrite in a plugin, define your own Featured_Content class on or
+ * before the 'setup_theme' hook.
+ */
+if ( ! class_exists( 'Featured_Content' ) && 'plugins.php' !== $GLOBALS['pagenow'] ) {
+	require get_template_directory() . '/inc/featured-content.php';
+}

@@ -120,7 +120,6 @@ blockquote.pull-right {
     border-right: 0;
     border-bottom: 2px solid @blockquote-border-color;
 }
-
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -157,6 +156,10 @@ p.site-title {
 p.site-description {
     font-weight: bold;
     color: #27528B;
+}
+
+.site-content {
+    .make-row();
 }
 
 .decor-line {
@@ -196,7 +199,7 @@ p.site-description {
 // --------------------------------------------------
 .navbar {
     border: 0;
-    font-weight: bold;
+    font-weight: 400;
 }
 
 .navbar-default {
@@ -204,6 +207,7 @@ p.site-description {
     border-color: @navbar-default-border;
 
     .navbar-brand {
+        font-weight: bold;
         color: @navbar-default-brand-color;
         &:hover,
         &:focus {
@@ -256,6 +260,69 @@ p.site-description {
             &:focus {
                 color: @navbar-default-link-disabled-color;
                 background-color: @navbar-default-link-disabled-bg;
+            }
+        }
+    }
+}
+
+.navbar-inverse {
+    background-color: @navbar-inverse-bg;
+    border-color: @navbar-inverse-border;
+
+    .navbar-brand {
+        font-weight: bold;
+        color: @navbar-inverse-brand-color;
+        &:hover,
+        &:focus {
+            color: @navbar-inverse-brand-hover-color;
+            background-color: @navbar-inverse-brand-hover-bg;
+        }
+    }
+
+    .navbar-nav {
+        > li > a {
+            font-size: ceil((@font-size-base * 1.12));
+            color: @navbar-inverse-link-color;
+            transition: all 1400ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+
+            &:hover,
+            &:focus {
+                color: @navbar-inverse-link-hover-color;
+                background-color: @navbar-inverse-link-hover-bg;
+            }
+        }
+        > li > .dropdown-menu {
+            margin-top: 2px;
+            box-shadow: none;
+            border-bottom: 2px solid transparent;
+            border-bottom-color: @navbar-inverse-border;
+
+            li > a {
+                font-weight: bold;
+                background-color: @navbar-inverse-link-hover-bg;
+                color: @navbar-inverse-link-color;
+
+                &:hover,
+                &:focus {
+                    color: @navbar-inverse-link-hover-color;
+                    background-color: @navbar-inverse-link-hover-bg;
+                }
+            }
+        }
+        > .active > a {
+            &,
+            &:hover,
+            &:focus {
+                color: @navbar-inverse-link-active-color;
+                background-color: @navbar-inverse-link-active-bg;
+            }
+        }
+        > .disabled > a {
+            &,
+            &:hover,
+            &:focus {
+                color: @navbar-inverse-link-disabled-color;
+                background-color: @navbar-inverse-link-disabled-bg;
             }
         }
     }
@@ -320,11 +387,6 @@ p.site-description {
     /*--------------------------------------------------------------
     # Elements
     --------------------------------------------------------------*/
-    body > div.container {
-        //padding-left: 0;
-        //padding-right: 0;
-    }
-
     .site {
         margin-top: 0;
     }
@@ -346,6 +408,7 @@ p.site-description {
     .navbar {
         margin-left: -15px;
         margin-right: -15px;
+        margin-bottom: 0;
         border-top: none;
         border-left: none;
         border-right: none;
@@ -363,6 +426,26 @@ p.site-description {
             &:focus {
                 color: @navbar-default-brand-hover-color;
                 background-color: @navbar-default-brand-hover-bg;
+            }
+        }
+
+        .navbar-nav > li > .dropdown-menu {
+            margin-top: 2px;
+            box-shadow: none;
+            border: 0;
+        }
+    }
+
+    .navbar-inverse {
+        background-color: #fff;
+        border-color: @navbar-inverse-border;
+
+        .navbar-brand {
+            color: @navbar-inverse-brand-color;
+            &:hover,
+            &:focus {
+                color: @navbar-inverse-brand-hover-color;
+                background-color: @navbar-inverse-brand-hover-bg;
             }
         }
 
