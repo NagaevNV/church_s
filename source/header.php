@@ -5,8 +5,7 @@
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  * @package church_s
  */
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 
 <head>
@@ -22,26 +21,26 @@
     <div id="page" class="hfeed site container">
 
         <header id="masthead" class="site-header" role="banner">
-            <div class="site-branding text-center">
-                <?php if (get_header_image()) : ?>
-                    <a href="<?php echo esc_url(home_url('/')); ?>" class="hidden-xs hidden-sm" rel="home">
-                        <img src="<?php header_image(); ?>" class="img-responsive center-block" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
+            <div class="site-branding  center-block text-center  visible-md visible-lg">
+                <?php if (get_header_image() != '') : ?>
+                    <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                        <img src="<?php header_image(); ?>" class="img-responsive" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
                     </a>
                 <?php endif; ?>
                 <?php if (is_front_page() && is_home()) : ?>
-                    <h1 class="site-title visible-sm">
+                    <h1 class="site-title <?php if (get_header_image() != '') : echo 'hidden'; endif;?>">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
                     </h1>
+                    <p class="site-description <?php if (get_header_image() != '') : echo 'hidden'; endif;?>"><?php bloginfo('description'); ?></p>
                 <?php else : ?>
-                    <p class="site-title visible-sm">
+                    <p class="site-title <?php if (get_header_image() != '') : echo 'hidden'; endif;?>">
                         <a href="<?php echo esc_url(home_url('/')); ?>" rel="home"><?php bloginfo('name'); ?></a>
                     </p>
+                    <p class="site-description <?php if (get_header_image() != '') : echo 'hidden'; endif;?>"><?php bloginfo('description'); ?></p>
                 <?php endif; ?>
-                <p class="site-description visible-sm"><?php bloginfo('description'); ?></p>
             </div>
             <!-- .site-branding -->
             <nav class="navbar navbar-default" role="navigation">
-                <div class="decor-line hidden-xs"></div>
                 <div class="container-fluid">
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
@@ -52,7 +51,9 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand visible-xs" href="<?php bloginfo('url')?>"><?php bloginfo('name')?></a>
+                        <a class="navbar-brand visible-xs visible-sm" href="<?php bloginfo('url')?>">
+                            <?php bloginfo('name')?>
+                        </a>
                     </div>
                     <?php wp_nav_menu(array(
                         'menu'              => 'primary',
@@ -66,10 +67,11 @@
                         'walker'            => new wp_bootstrap_navwalker()));
                     ?>
                 </div>
-                <div class="decor-line hidden-xs"></div>
             </nav>
             <!-- .navbar  -->
         </header>
         <!-- #masthead -->
+        <div class="shadow-line"></div>
+        <!-- #shadow-line -->
 
         <div id="content" class="site-content">

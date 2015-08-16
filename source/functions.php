@@ -16,13 +16,14 @@ if ( ! function_exists( 'church_setup' ) ) :
  * as indicating support for post thumbnails.
  */
 function church_setup() {
+
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
 	 * If you're building a theme based on church_s, use a find and replace
 	 * to change 'church' to the name of your theme in all the template files
 	 */
-	load_theme_textdomain( 'church', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'church', get_template_directory() . '/inc/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -59,25 +60,13 @@ function church_setup() {
 		'caption',
 	) );
 
-	/*
-	 * Enable support for Post Formats.
-	 * See https://developer.wordpress.org/themes/functionality/post-formats/
-	 */
-	add_theme_support( 'post-formats', array(
-		'aside',
-		'image',
-		'video',
-		'quote',
-		'link',
-	) );
-
 	// Set up the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'church_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
 	) ) );
 
-	add_editor_style( 'css/editor-style.css' );
+	add_editor_style( '/inc/css/editor-style.css' );
 }
 endif; // church_setup
 add_action( 'after_setup_theme', 'church_setup' );
@@ -106,8 +95,8 @@ function church_widgets_init() {
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
+		'before_title'  => '<h3 class="widget-title">',
+		'after_title'   => '</h3>',
 	) );
 }
 add_action( 'widgets_init', 'church_widgets_init' );
@@ -116,48 +105,37 @@ add_action( 'widgets_init', 'church_widgets_init' );
  * Enqueue scripts and styles.
  */
 function church_scripts() {
+	// Add compile bootstrap.less and theme.less to theme.min.css
+	wp_enqueue_style( 'church-theme', get_template_directory_uri() . '/inc/css/theme.min.css' );
+	// Add main theme stylesheet
 	wp_enqueue_style( 'church-style', get_stylesheet_uri() );
-
-	wp_enqueue_style( 'church-theme-css', get_template_directory_uri() . '/css/theme.min.css' );
-
+	// Add Google Fonts
+	wp_register_style( 'church-fonts', '//fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Sans:400,400italic,700,700italic&subset=latin,cyrillic-ext');
+	wp_enqueue_style( 'church-fonts' );
+	// Add support jQuery
 	wp_enqueue_script("jquery");
-
-	wp_enqueue_script( 'church-bootstrap-js', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'church-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true );
-
-	wp_enqueue_script( 'church-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
-
+	// Add Bootstrap default JS
+	wp_enqueue_script( 'church-bootstrap-js', get_template_directory_uri() . '/inc/js/bootstrap.min.js', array(), '20120206', true );
+	// Main theme related functions
+	wp_enqueue_script( 'sparkling-functions', get_template_directory_uri() . '/inc/js/functions.js', array('jquery') );
+	// This one is for accessibility
+	wp_enqueue_script( 'church-skip-link-focus-fix', get_template_directory_uri() . '/inc/js/skip-link-focus-fix.js', array(), '20130115', true );
+	// Treaded comments
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'church_scripts' );
 
-/**
- * Implement the Custom Header feature.
- */
+// Implement the Custom Header feature
 require get_template_directory() . '/inc/custom-header.php';
-
-/**
- * Custom template tags for this theme.
- */
+// Custom template tags for this theme
 require get_template_directory() . '/inc/template-tags.php';
-
-/**
- * Custom functions that act independently of the theme templates.
- */
+// Custom functions that act independently of the theme templates
 require get_template_directory() . '/inc/extras.php';
-
-/**
- * Customizer additions.
- */
+// Customizer additions
 require get_template_directory() . '/inc/customizer.php';
-
-/**
- * Load Jetpack compatibility file.
- */
+// Load Jetpack compatibility file
 require get_template_directory() . '/inc/jetpack.php';
-
 // Register Custom Navigation Walker
-require get_template_directory() . '/inc/wp_bootstrap_navwalker.php';
+require get_template_directory() . '/inc/navwalker.php';
