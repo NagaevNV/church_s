@@ -24,7 +24,7 @@
 
 	<div class="entry-content">
 		<a href="<?php the_permalink(); ?>" class="entry-post-thumbnail col-md-4 hidden-xs center-block"><?php if ( has_post_thumbnail() ) { the_post_thumbnail('','');}  ?></a>
-		<div class="entry-textpost col-md-8">
+		<div class="entry-text-post col-md-8">
 			<?php the_content(''); ?>
 		</div>
 		<?php wp_link_pages( array(

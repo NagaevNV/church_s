@@ -388,16 +388,8 @@ p.site-description {
 
             &:hover,
             &:focus {
-                color: #0A3FB4;
+                color: #006BFF;
             }
-        }
-    }
-
-    > .entry-edit-post {
-        margin-bottom: 11px;
-         
-        > .post-edit-link {
-            float: right;
         }
     }
 
@@ -431,6 +423,14 @@ p.site-description {
             }
         }
     }
+
+    > .entry-edit-post {
+        margin-bottom: 11px;
+
+        > .post-edit-link {
+            float: right;
+        }
+    }
 }
 
 .wp-post-image {
@@ -446,7 +446,7 @@ p.site-description {
 
         &:hover,
         &:focus {
-            color: #0A3FB4;
+            color: #006BFF;
         }
     }
 }
@@ -479,10 +479,19 @@ p.site-description {
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
+@media (min-width: @screen-md-min) {
+    .entry-content{
+        > .entry-text-post {
+            padding-left: 0;
+        }
+    }
+}
+
 @media (max-width: @screen-sm-max) {
-    /*--------------------------------------------------------------
-    # Elements
-    --------------------------------------------------------------*/
+
+     //
+     // Elements
+     // --------------------------------------------------
     .site {
         margin-top: 0;
     }
@@ -544,6 +553,19 @@ p.site-description {
             margin-top: 2px;
             box-shadow: none;
             border: 0;
+        }
+    }
+
+    //
+    // Posts and pages
+    //----------------------------------------------------------
+    .entry-header {
+        > .entry-edit-post {
+            .clearfix();
+
+            > .post-edit-link {
+                float: right;
+            }
         }
     }
 }

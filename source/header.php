@@ -21,7 +21,7 @@
     <div id="page" class="hfeed site container">
 
         <header id="masthead" class="site-header" role="banner">
-            <div class="site-branding  center-block text-center  visible-md visible-lg">
+            <div class="site-branding center-block text-center visible-md visible-lg">
                 <?php if (get_header_image() != '') : ?>
                     <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
                         <img src="<?php header_image(); ?>" class="img-responsive" alt="<?php echo esc_attr(get_bloginfo('name', 'display')); ?>">
@@ -45,7 +45,7 @@
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle" data-toggle="collapse"
-                                data-target="#bs-example-navbar-collapse-1">
+                                data-target="#church-navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
@@ -61,7 +61,7 @@
                         'depth'             => 2,
                         'container'         => 'div',
                         'container_class'   => 'collapse navbar-collapse',
-                        'container_id'      => 'bs-example-navbar-collapse-1',
+                        'container_id'      => 'church-navbar-collapse',
                         'menu_class'        => 'nav navbar-nav',
                         'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                         'walker'            => new wp_bootstrap_navwalker()));

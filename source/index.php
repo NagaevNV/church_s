@@ -13,7 +13,7 @@
  */
 get_header(); ?>
 
-	<div id="primary" class="content-area col-xs-12 col-md-8">
+	<div id="primary" class="<?php church_grid('content-area') ?>">
 
 		<main id="main" class="site-main" role="main">
 
