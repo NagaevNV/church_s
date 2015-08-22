@@ -11,12 +11,14 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
+
+		<?php the_title( sprintf( '<h2 class="entry-title col-md-12"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
 
 		<?php if ( 'post' == get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php church_posted_on(); ?>
-		</div><!-- .entry-meta -->
+			<div class="entry-meta col-md-12">
+				<?php church_entry_post_date(); ?>
+				<?php church_entry_post_cat(); ?>
+			</div><!-- .entry-meta -->
 		<?php endif; ?>
 	</header><!-- .entry-header -->
 

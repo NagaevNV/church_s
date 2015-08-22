@@ -11,11 +11,21 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php the_title( '<h1 class="entry-title col-md-12">', '</h1>' ); ?>
+		<div class="entry-meta col-md-12">
+			<?php church_entry_post_date(); ?>
+		</div><!-- .entry-meta -->
+		<?php church_entry_edit_post(); ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
-		<?php the_content(); ?>
+		<?php if (has_post_thumbnail()) : ?>
+			<a href="<?php the_permalink(); ?>" class="entry-page-thumbnail col-md-12 center-block"><?php the_post_thumbnail('',''); ?></a>
+		<?php endif; ?>
+		<div class="entry-text-post col-md-12">
+			<?php the_content(''); ?>
+		</div>
+
 		<?php
 			wp_link_pages( array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'church' ),
@@ -23,9 +33,7 @@
 			) );
 		?>
 	</div><!-- .entry-content -->
-
 	<footer class="entry-footer">
-		<?php edit_post_link( esc_html__( 'Edit', 'church' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

@@ -4,6 +4,11 @@
 // first set the body to hide and show everyhthing when fully loaded ;)
 jQuery(document).ready(function(){
 
+    // the search widget
+    jQuery( 'form.search-form').addClass( 'form-inline' );
+    jQuery( 'input.search-field' ).addClass( 'form-control' );
+    jQuery( 'input.search-submit' ).addClass( 'btn btn-default' );
+
     // here for each comment reply link of WordPress
     jQuery( '.comment-reply-link' ).addClass( 'btn btn-sm btn-default' );
 

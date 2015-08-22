@@ -9,14 +9,15 @@
 
 get_header(); ?>
 
-	<div id="primary" class="content-area col-xs-12 col-lg-8">
+	<div id="primary" class="<?php church_content_sidebar_off() ?>">
+
 		<main id="main" class="site-main" role="main">
 
 		<?php while ( have_posts() ) : the_post(); ?>
 
 			<?php get_template_part( 'template-parts/content', 'single' ); ?>
 
-			<?php the_post_navigation(); ?>
+			<?php //the_post_navigation(); ?>
 
 			<?php
 				// If comments are open or we have at least one comment, load up the comment template.

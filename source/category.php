@@ -10,14 +10,20 @@
 get_header(); ?>
 
 	<div id="primary" class="<?php church_content_sidebar_off() ?>">
+
 		<main id="main" class="site-main" role="main">
 
 		<?php if ( have_posts() ) : ?>
 
 			<header class="page-header">
+				<h1 class="archive-title"><?php single_cat_title( '', true ); ?></h1>
+
 				<?php
-					single_cat_title( '<h1 class="page-title">', '</h1>' );
-					category_description( '<div class="taxonomy-description">', '</div>' );
+				// Show an optional term description.
+				$term_description = term_description();
+				if ( ! empty( $term_description ) ) :
+					printf( '<div class="taxonomy-description">%s</div>', $term_description );
+				endif;
 				?>
 			</header><!-- .page-header -->
 

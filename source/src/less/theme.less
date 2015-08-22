@@ -365,6 +365,20 @@ p.site-description {
 # Widgets
 --------------------------------------------------------------*/
 
+.widget_search{
+    > .widget-title {
+        text-align: center;
+    }
+
+    > .search-form {
+        > label > .screen-reader-text {
+            display: none;
+        }
+    }
+}
+
+
+
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
@@ -374,6 +388,15 @@ p.site-description {
 --------------------------------------------------------------*/
 .entry-header, .entry-content, .entry-footer {
     .make-row();
+}
+
+.site-main {
+    > header.page-header {
+        margin-top: 0;
+        > h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+        }
+    }
 }
 
 .entry-header {
@@ -395,7 +418,7 @@ p.site-description {
 
     > .entry-meta {
         margin-bottom: 12px;
-        font-size: ceil((@font-size-base * 0.75));
+        font-size: ceil((@font-size-base * 0.81));
 
         > .posted-date {
             text-align: left;
@@ -550,6 +573,19 @@ p.site-description {
     //
     // Posts and pages
     //----------------------------------------------------------
+    .entry-header {
+        > .entry-edit-post {
+            .clearfix();
+        }
+    }
+
+    .entry-content{
+        > .entry-page-thumbnail {
+            padding-left: 0;
+            padding-right: 0;
+        }
+    }
+
     .entry-header {
         > a.enter-read-more {
             .clearfix();

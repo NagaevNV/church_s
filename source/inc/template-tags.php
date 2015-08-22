@@ -21,7 +21,7 @@ endif;
 
 if ( ! function_exists( 'church_entry_post_date' ) ) :
 	function church_entry_post_date(){
-		echo '<time class="entry-date">' . get_the_date() . '</time>';
+		echo '<time class="entry-date">' . get_the_date() .' '. get_the_time() . '</time>';
 	}
 endif;
 
@@ -67,27 +67,27 @@ if ( ! function_exists( 'church_entry_footer' ) ) :
  */
 function church_entry_footer() {
 	// Hide category and tag text for pages.
-	if ( 'post' == get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'church' ) );
-		if ( $categories_list && church_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'church' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'church' ) );
-		if ( $tags_list ) {
-			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'church' ) . '</span>', $tags_list ); // WPCS: XSS OK.
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_html__( 'Leave a comment', 'church' ), esc_html__( '1 Comment', 'church' ), esc_html__( '% Comments', 'church' ) );
-		echo '</span>';
-	}
-
-	edit_post_link( esc_html__( 'Edit', 'church' ), '<span class="edit-link">', '</span>' );
+//	if ( 'post' == get_post_type() ) {
+//		/* translators: used between list items, there is a space after the comma */
+//		$categories_list = get_the_category_list( esc_html__( ', ', 'church' ) );
+//		if ( $categories_list && church_categorized_blog() ) {
+//			printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'church' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+//		}
+//
+//		/* translators: used between list items, there is a space after the comma */
+//		$tags_list = get_the_tag_list( '', esc_html__( ', ', 'church' ) );
+//		if ( $tags_list ) {
+//			printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'church' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+//		}
+//	}
+//
+//	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+//		echo '<span class="comments-link">';
+//		comments_popup_link( esc_html__( 'Leave a comment', 'church' ), esc_html__( '1 Comment', 'church' ), esc_html__( '% Comments', 'church' ) );
+//		echo '</span>';
+//	}
+//
+//	edit_post_link( esc_html__( 'Edit', 'church' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
