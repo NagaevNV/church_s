@@ -90,8 +90,8 @@ add_action( 'after_setup_theme', 'church_content_width', 0 );
  */
 function church_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'church' ),
-		'id'            => 'sidebar-1',
+		'name'          => esc_html__( 'Content sidebar', 'church' ),
+		'id'            => 'content-sidebar',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
@@ -131,8 +131,6 @@ add_action( 'wp_enqueue_scripts', 'church_scripts' );
 require get_template_directory() . '/inc/custom-header.php';
 // Custom template tags for this theme
 require get_template_directory() . '/inc/template-tags.php';
-// Grid class
-require get_template_directory() . '/inc/template-grid.php';
 // Custom functions that act independently of the theme templates
 require get_template_directory() . '/inc/extras.php';
 // Customizer additions

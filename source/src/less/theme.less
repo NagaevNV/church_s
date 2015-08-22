@@ -94,10 +94,6 @@ Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-# Normalize
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 
@@ -120,9 +116,11 @@ blockquote.pull-right {
     border-right: 0;
     border-bottom: 2px solid @blockquote-border-color;
 }
+
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
+
 .site {
     margin-top: 50px;
     background-color: #FFF;
@@ -207,6 +205,7 @@ p.site-description {
 //
 // Navbars
 // --------------------------------------------------
+
 .navbar {
     margin: 0 -15px 0px -15px;
     border-top: 2px solid transparent;
@@ -341,6 +340,7 @@ p.site-description {
         }
     }
 }
+
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
@@ -399,15 +399,7 @@ p.site-description {
 
         > .posted-date {
             text-align: left;
-            > a {
-                color: #606778;
-                transition: color 1400ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
-
-                &:hover,
-                &:focus {
-                    color: #020C22;
-                }
-            }
+            color: #606778;
         }
 
         > .cat-links {
@@ -430,6 +422,12 @@ p.site-description {
         > .post-edit-link {
             float: right;
         }
+    }
+}
+
+.entry-content{
+    > .entry-post-thumbnail {
+        padding-right: 0;
     }
 }
 
@@ -479,13 +477,6 @@ p.site-description {
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-@media (min-width: @screen-md-min) {
-    .entry-content{
-        > .entry-text-post {
-            padding-left: 0;
-        }
-    }
-}
 
 @media (max-width: @screen-sm-max) {
 
@@ -560,12 +551,8 @@ p.site-description {
     // Posts and pages
     //----------------------------------------------------------
     .entry-header {
-        > .entry-edit-post {
+        > a.enter-read-more {
             .clearfix();
-
-            > .post-edit-link {
-                float: right;
-            }
         }
     }
 }

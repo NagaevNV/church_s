@@ -7,11 +7,11 @@
  * @package church_s
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'content-sidebar' ) ) {
 	return;
 }
 ?>
 
 <div id="secondary" class="widget-area col-xs-12 col-md-4" role="complementary">
-	<?php dynamic_sidebar( 'sidebar-1' ); ?>
+	<?php dynamic_sidebar( 'content-sidebar' ); ?>
 </div><!-- #secondary -->
