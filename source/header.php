@@ -55,17 +55,25 @@
                             <?php bloginfo('name')?>
                         </a>
                     </div>
-                    <?php wp_nav_menu(array(
-                        'menu'              => 'primary',
-                        'theme_location'    => 'primary',
-                        'depth'             => 2,
-                        'container'         => 'div',
-                        'container_class'   => 'collapse navbar-collapse',
-                        'container_id'      => 'church-navbar-collapse',
-                        'menu_class'        => 'nav navbar-nav',
-                        'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
-                        'walker'            => new wp_bootstrap_navwalker()));
-                    ?>
+                    <div id="church-navbar-collapse" class="collapse navbar-collapse">
+                        <?php wp_nav_menu(array(
+                            'menu'              => 'primary',
+                            'theme_location'    => 'primary',
+                            'depth'             => 2,
+                            'container'         => 'div',
+                            'container_class'   => '',
+                            'container_id'      => '',
+                            'menu_class'        => 'nav navbar-nav',
+                            'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
+                            'walker'            => new wp_bootstrap_navwalker()));
+                        ?>
+                        <form method="get" class="navbar-form navbar-right" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="s" id="navbar-search" />
+                            </div>
+                            <button type="submit" class="btn btn-default">Найти</button>
+                        </form>
+                    </div>
                 </div>
             </nav>
             <!-- .navbar  -->

@@ -38,9 +38,12 @@ get_header(); ?>
 				?>
 
 			<?php endwhile; ?>
-
-			<?php the_posts_navigation(); ?>
-
+			<div class="post-pagination col-md-12 text-center">
+				<?php the_posts_pagination( array(
+					'end_size' => 2,
+					'mid_size' => 2,
+				) ); ?>
+			</div>
 		<?php else : ?>
 
 			<?php get_template_part( 'template-parts/content', 'none' ); ?>

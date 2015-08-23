@@ -14,16 +14,30 @@
 </div><!-- #page -->
 <footer id="colophon" class="site-footer" role="contentinfo">
     <div class="container">
-        <div class="site-info">
-            <a href="<?php echo esc_url(__('https://wordpress.org/', 'church')); ?>"><?php printf(esc_html__('Proudly powered by %s', 'church'), 'WordPress'); ?></a>
-            <span class="sep"> | </span>
-            <?php printf(esc_html__('Theme: %1$s by %2$s.', 'church'), 'church', '<a href="http://nagaevnv@yandex.ru" rel="designer">NagaevNV</a>'); ?>
+        <div class="footer-info row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4 text-center">
+                <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
+                <?php
+                    echo ' Все материалы сайта доступны по лицензии: </br>';
+                    echo '<a href="http://creativecommons.org/licenses/by/4.0/deed.ru" rel="license"> Creative Commons Attribution 4.0 </a>';
+                ?>
+            </div>
+            <div class="site-info col-md-4 text-center">
+                <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+                    <?php
+                        echo bloginfo('name') . ' ' . date('Y') . ' год. </br>';
+                    ?>
+                </a>
+                <?php
+                    echo 'Разработка и дизайн <a href="https://github.com/NagaevNV/church_s" rel="author">NagaevNV</a>';
+                ?>
+            </div>
         </div>
-        <!-- .site-info -->
     </div>
     <div class="scroll-to-top"><i class="fa fa-angle-up"></i></div><!-- .scroll-to-top -->
 </footer><!-- #colophon -->
-
 
 <?php wp_footer(); ?>
 

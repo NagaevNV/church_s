@@ -39,7 +39,7 @@
 
 	<footer class="entry-footer">
 		<a href="<?php the_permalink() ?>" class="enter-read-more col-md-12 col-xs-12 text-right" title="<?php the_title(); ?>">
-			<div class="read_more"><?php echo (esc_html__('Continue reading', 'church' ). ' &raquo') ?></div>
+			<div class="read_more">Читать далее &raquo</div>
 		</a>
 	</footer><!-- .entry-footer -->
 

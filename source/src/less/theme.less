@@ -161,6 +161,30 @@ p.site-description {
     background: #fefefe none repeat scroll 0% 0%;
 }
 
+.site-footer {
+    margin-top: 50px;
+    background: #E9CE9E none repeat scroll 0% 0%;
+    box-shadow: 0px 0px 4px 2px rgba(0, 0, 0, 0.3);
+    color: #606778;
+    font-size: ceil((@font-size-base * 0.85));
+    font-weight: bold;
+
+    .footer-info {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    a {
+        color: #606778;
+        transition: color 1400ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+
+        &:hover,
+        &:focus {
+            color: #020C22;
+        }
+    }
+}
+
 .shadow-line {
     .make-row();
     height: 18px;
@@ -169,37 +193,57 @@ p.site-description {
     background-size: 100% auto;
     background-image: linear-gradient(to bottom, rgba(2, 11, 34, 0.06) 0%, rgba(248, 248, 248, 0) 100%);
 }
-
-.decor-line {
-    background: #E9CE9E none repeat scroll 0% 0%;
-    height: 2px;
-    position: relative;
-}
-
-.decor-line::before {
-    background: transparent url("../img/decor_line.png") no-repeat scroll 0% 0%;
-    left: 0px;
-}
-
-.decor-line::after {
-    background: transparent url("../img/decor_line.png") no-repeat scroll 100% 0px;
-    right: 0px;
-}
-
-.decor-line::after, .decor-line::before {
-    content: "";
-    width: 14px;
-    height: 10px;
-    margin-top: -4px;
-    display: block;
-    position: absolute;
-}
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Navigation
+--------------------------------------------------------------*/
+.post-pagination {
+    margin-top: -10px;
+}
+
+.navigation, .pagination {
+    > .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+        display: none;
+    }
+
+    > .nav-links {
+        a {
+            color: #404041;
+            transition: color 1400ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+
+            &:hover,
+            &:focus {
+                color: #006BFF;
+            }
+        }
+
+        > .page-numbers {
+            padding: 14px 26px;
+            font-weight: bold;
+            text-decoration: none;
+            border-top: 2px solid #E9CE9E;
+        }
+
+        > .current {
+            color: #006BFF;
+            border-top: 2px solid #006BFF;
+        }
+
+        > .prev, .next {
+            border-top: 0;
+        }
+    }
+}
+
+/*--------------------------------------------------------------
+## Links
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+## Menus
 --------------------------------------------------------------*/
 
 //
@@ -342,14 +386,6 @@ p.site-description {
 }
 
 /*--------------------------------------------------------------
-## Links
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
-## Menus
---------------------------------------------------------------*/
-
-/*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
 
@@ -376,8 +412,6 @@ p.site-description {
         }
     }
 }
-
-
 
 /*--------------------------------------------------------------
 # Content
@@ -497,6 +531,111 @@ p.site-description {
 ## Galleries
 --------------------------------------------------------------*/
 
+.gallery {
+    margin-bottom: 20px;
+}
+.gallery-item {
+    float: left;
+    margin: 0 4px 4px 0;
+    overflow: hidden;
+    position: relative;
+}
+.gallery-columns-1 .gallery-item {
+    max-width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+    max-width: 48%;
+    max-width: -webkit-calc(50% - 4px);
+    max-width:         calc(50% - 4px);
+}
+.gallery-columns-3 .gallery-item {
+    max-width: 32%;
+    max-width: -webkit-calc(33.3% - 4px);
+    max-width:         calc(33.3% - 4px);
+}
+.gallery-columns-4 .gallery-item {
+    max-width: 23%;
+    max-width: -webkit-calc(25% - 4px);
+    max-width:         calc(25% - 4px);
+}
+.gallery-columns-5 .gallery-item {
+    max-width: 19%;
+    max-width: -webkit-calc(20% - 4px);
+    max-width:         calc(20% - 4px);
+}
+.gallery-columns-6 .gallery-item {
+    max-width: 15%;
+    max-width: -webkit-calc(16.7% - 4px);
+    max-width:         calc(16.7% - 4px);
+}
+.gallery-columns-7 .gallery-item {
+    max-width: 13%;
+    max-width: -webkit-calc(14.28% - 4px);
+    max-width:         calc(14.28% - 4px);
+}
+.gallery-columns-8 .gallery-item {
+    max-width: 11%;
+    max-width: -webkit-calc(12.5% - 4px);
+    max-width:         calc(12.5% - 4px);
+}
+.gallery-columns-9 .gallery-item {
+    max-width: 9%;
+    max-width: -webkit-calc(11.1% - 4px);
+    max-width:         calc(11.1% - 4px);
+}
+.gallery-columns-1 .gallery-item:nth-of-type(1n),
+.gallery-columns-2 .gallery-item:nth-of-type(2n),
+.gallery-columns-3 .gallery-item:nth-of-type(3n),
+.gallery-columns-4 .gallery-item:nth-of-type(4n),
+.gallery-columns-5 .gallery-item:nth-of-type(5n),
+.gallery-columns-6 .gallery-item:nth-of-type(6n),
+.gallery-columns-7 .gallery-item:nth-of-type(7n),
+.gallery-columns-8 .gallery-item:nth-of-type(8n),
+.gallery-columns-9 .gallery-item:nth-of-type(9n) {
+    margin-right: 0;
+}
+.gallery-columns-1.gallery-size-medium figure.gallery-item:nth-of-type(1n+1),
+.gallery-columns-1.gallery-size-thumbnail figure.gallery-item:nth-of-type(1n+1),
+.gallery-columns-2.gallery-size-thumbnail figure.gallery-item:nth-of-type(2n+1),
+.gallery-columns-3.gallery-size-thumbnail figure.gallery-item:nth-of-type(3n+1) {
+    clear: left;
+}
+.gallery-caption {
+    background-color: rgba(0, 0, 0, 0.7);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:    border-box;
+    box-sizing:         border-box;
+    color: #fff;
+    font-size: 12px;
+    line-height: 1.5;
+    margin: 0;
+    max-height: 50%;
+    opacity: 0;
+    padding: 6px 8px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: left;
+    width: 100%;
+}
+.gallery-caption:before {
+    content: "";
+    height: 100%;
+    min-height: 49px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.gallery-item:hover .gallery-caption {
+    opacity: 1;
+}
+.gallery-columns-7 .gallery-caption,
+.gallery-columns-8 .gallery-caption,
+.gallery-columns-9 .gallery-caption {
+    display: none;
+}
+
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
@@ -517,6 +656,19 @@ p.site-description {
     .site-branding {
         padding-bottom: 0;
     }
+
+    /*--------------------------------------------------------------
+    # Navigation
+    --------------------------------------------------------------*/
+
+    .navigation, .pagination {
+        > .nav-links {
+         > .page-numbers {
+                padding: 8px 14px;
+            }
+        }
+    }
+
     //
     // Navbars
     // --------------------------------------------------
@@ -591,8 +743,4 @@ p.site-description {
             .clearfix();
         }
     }
-}
-
-@media (max-width: @screen-xs-max) {
-
 }
