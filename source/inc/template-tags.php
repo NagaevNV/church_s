@@ -10,11 +10,14 @@
 if ( ! function_exists( 'church_content_sidebar_off' ) ) :
 	function church_content_sidebar_off()
 	{
-		if ( ! is_active_sidebar( 'content-sidebar' ) ) {
-			echo "content-area col-xs-12 col-md-10 col-md-offset-1";
+		if ( is_active_sidebar( 'content-sidebar' )) {
+			echo "content-area col-xs-12 col-md-8";
+		}
+		elseif ( is_active_sidebar( 'home-sidebar' )) {
+			echo "content-area col-xs-12 col-md-8";
 		}
 		else {
-			echo "content-area col-xs-12 col-md-8";
+			echo "content-area col-xs-12 col-md-10 col-md-offset-1";
 		}
 	}
 endif;
