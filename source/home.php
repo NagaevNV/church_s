@@ -19,6 +19,12 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
+			<?php if ( is_home() && ! is_front_page() ) : ?>
+				<header>
+					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+				</header>
+			<?php endif; ?>
+
 			<?php /* Start the Loop */ ?>
 			<?php
 
@@ -52,35 +58,5 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php if ( is_active_sidebar( 'home-sidebar' ) ) : ?>
-
-<div id="secondary" class="widget-area col-xs-12 col-md-4" role="complementary">
-	<?php dynamic_sidebar( 'home-sidebar' ); ?>
-</div><!-- #secondary -->
-
-<?php endif; ?>
-
+<?php get_sidebar('home'); ?>
 <?php get_footer(); ?>
-
-<script language="Javascript" src="http://script.days.ru/calendar.php?advanced=1&dayicon=1"></script>
-<h4>
-	<p class="text-center">
-		<script language="Javascript">print_day(); </script></br>
-		<small><script language="Javascript">print_week()</script></small>
-	</p>
-</h4>
-<p class="text-center">
-	<script language="Javascript">print_holiday()</script>
-</p>
-<p class="text-center">
-	<script language="Javascript">print_post()</script>
-</p>
-<p class="text-center">
-	<script language="Javascript">print_trapeza()</script>
-</p>
-<p class="text-center">
-	<script language="Javascript">print_saints()</script>
-</p>
-<p class="text-center">
-	<script language="Javascript">print_icon()</script>
-</p>

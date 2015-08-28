@@ -67,12 +67,21 @@
                             'fallback_cb'       => 'wp_bootstrap_navwalker::fallback',
                             'walker'            => new wp_bootstrap_navwalker()));
                         ?>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+                                <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#church-navbar-search-collapse" aria-expanded="false" aria-controls="church-navbar-search-collapse">
+                                    <span class="glyphicon glyphicon-search"></span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="collapse nav navbar-nav nav-collapse slide-down" id="church-navbar-search-collapse">
                         <form method="get" class="navbar-form navbar-right" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
                             <div class="form-group">
                                 <input type="text" class="form-control" name="s" id="navbar-search" />
                             </div>
-                            <button type="submit" class="btn btn-default">Найти</button>
+                            <button type="submit" class="btn btn-default" aria-hidden="true">Найти</button>
                         </form>
+                        </div>
                     </div>
                 </div>
             </nav>

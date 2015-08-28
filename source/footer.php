@@ -16,6 +16,14 @@
     <div class="container">
         <div class="footer-info row">
             <div class="col-md-4">
+                <!-- WORDPRESS STATISTICS -->
+                <div style="line-height: 10px; display: block; text-align: left; font-family: Tahoma; width: 120px; height:50px; border: 0px; background: #e7e7e7; font-size: 7pt;">
+                    <span style="color: #555555;">Сгенерирована за:</span> <?php timer_stop(1); ?>
+                    <span style="color: #555555;">Запросов к БД:</span> <?php echo get_num_queries(); ?>
+                    <span style="color: #555555;">Потребление памяти:</span> <?php if (function_exists('memory_get_usage')) echo round(memory_get_usage()/1024/1024, 2) . 'MB '; ?>
+                </div>
+                <!-- /WORDPRESS STATISTICS -->
+
             </div>
             <div class="col-md-4 text-center">
                 <span class="glyphicon glyphicon-copyright-mark" aria-hidden="true"></span>
